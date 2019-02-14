@@ -58,6 +58,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryGirl::Syntax::Methods
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   config.mock_with :rspec do |mocks|
     mocks.allow_message_expectations_on_nil = true

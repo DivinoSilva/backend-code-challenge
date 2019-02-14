@@ -9,20 +9,16 @@ describe CoordinatedsController do
         coordinated = Coordinated.last
 
         expect(response.status).to eq(200)
-        expect(coordinated.origin ).to eq('Minha casa')
-        expect(coordinated.destination ).to eq('Meu trabalho')
+        expect(coordinated.origin ).to eq('minha casa')
+        expect(coordinated.destination ).to eq('meu trabalho')
         expect(coordinated.distance ).to eq(12345)
       end
     end
 
     context 'when coordinateds exists' do
-      # let!(:coordnateds) { create(:coordinateds) }
+      let!(:coordinated) { create(:coordinated, distance: 150) }
       it 'creates coordinateds' do
-        coordinated = Coordinated.create(origin: "Minha casa", destination: "Meu trabalho", distance: "12345" )
-
-        expect(coordinated.distance ).to eq(12345)
-
-        post :create, params: { origin: "Minha casa", destination: "Meu trabalho", distance: "7" }
+        post :create, params: { origin: "minha casa", destination: "meu trabalho", distance: "7" }
 
         expect(response.status).to eq(200)
         expect(coordinated.reload.distance ).to eq(7)
@@ -32,7 +28,7 @@ describe CoordinatedsController do
     context 'error' do
       context 'when distance is invalid' do
         it 'return invalid distance message' do
-          post :create, params: { origin: "Minha casa", destination: "Meu trabalho", distance: "-1" }
+          post :create, params: { origin: "minha casa", destination: "meu trabalho", distance: "-1" }
 
           expect(response.status).to eq(422)
           expect(JSON.parse(response.body)['message']).to eq('Coordinated::InvalidDistance')

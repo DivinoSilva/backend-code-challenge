@@ -2,7 +2,7 @@ class CoordinatedsController < ActionController::API
   def create
     coordinateds = Coordinated.where("coordinateds.origin ilike ? and
                                       coordinateds.destination ilike ?",
-                                      params['origin'], params['destination'])
+                                      params['origin'].downcase, params['destination'].downcase)
                               .first
 
     if coordinateds.present?
@@ -19,8 +19,8 @@ class CoordinatedsController < ActionController::API
 
   def coordinateds_attributes
     {
-      origin: params['origin'],
-      destination: params['destination'],
+      origin: params['origin'].downcase,
+      destination: params['destination'].downcase,
       distance: params['distance'].to_i
     }
   end

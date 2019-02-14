@@ -14,10 +14,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'pry-byebug'
+gem 'dijkstra_graph'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do

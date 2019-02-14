@@ -2,26 +2,16 @@ class CostsController < ActionController::API
   class CostError < StandardError; end
 
   def index
-    cost_simualted = CostCalculator.new(origin, destination, weight).cost
+    coordinateds = Coordinated.all
 
-    render json: { message: cost_simualted }, status: :ok
+    simualted_cost = CostCalculator.new(coordinateds, params['origin'].downcase, params['destination'].downcase, weight).cost
+
+    render json: { message: simualted_cost }, status: :ok
   rescue => e
-      render json: { message: e.message }, status: :unprocessable_entity
+    render json: { message: e.message }, status: :unprocessable_entity
   end
 
   private
-
-  def origin
-    o = Coordinated.find_by(origin: params['origin'])
-
-    raise CostError.new('not_found')unless o.present?
-  end
-
-  def destination
-    d = Coordinated.find_by(destination: params['destination'])
-
-    raise CostError.new('not_found') unless d.present?
-  end
 
   def weight
     w = params['weight'].to_f

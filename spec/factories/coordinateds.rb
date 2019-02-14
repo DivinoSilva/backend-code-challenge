@@ -1,7 +1,7 @@
 FactoryGirl.define do
     factory :coordinated do
-      origin "Minha casa"
-      destination "Meu trabalho"
-      distance 12345
+      origin "minha casa"
+      destination "meu trabalho"
+      distance 10
     end
   end
