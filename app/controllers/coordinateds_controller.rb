@@ -10,7 +10,7 @@ class CoordinatedsController < ActionController::API
     else
       Coordinated.create(coordinateds_attributes)
     end
-    head :ok
+      head :ok
   rescue => e
       render json: { message: e.message }, status: :unprocessable_entity
   end
