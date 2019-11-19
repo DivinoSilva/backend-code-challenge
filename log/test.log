@@ -1,0 +1,119 @@
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 50]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "minha piscina"], ["distance", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha piscina"], ["destination", "meu cinema"], ["distance", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu trabalho"], ["destination", "meu cinema"], ["distance", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu shopping"], ["destination", "meu restaurante"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 50]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "minha piscina"], ["distance", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha piscina"], ["destination", "meu cinema"], ["distance", 3]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu trabalho"], ["destination", "meu cinema"], ["distance", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu shopping"], ["destination", "meu restaurante"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by CoordinatedsController#create as HTML
+  Parameters: {"destination"=>"Meu trabalho", "distance"=>"12345", "origin"=>"Minha casa"}
+  [1m[36mCoordinated Load (0.7ms)[0m  [1m[34mSELECT  "coordinateds".* FROM "coordinateds" WHERE (coordinateds.origin ilike 'minha casa' and
+                                      coordinateds.destination ilike 'meu trabalho') ORDER BY "coordinateds"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 12345]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (ActiveRecord: 1.3ms)
+  [1m[36mCoordinated Load (0.3ms)[0m  [1m[34mSELECT  "coordinateds".* FROM "coordinateds" ORDER BY "coordinateds"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 150]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CoordinatedsController#create as HTML
+  Parameters: {"destination"=>"meu trabalho", "distance"=>"7", "origin"=>"minha casa"}
+  [1m[36mCoordinated Load (1.0ms)[0m  [1m[34mSELECT  "coordinateds".* FROM "coordinateds" WHERE (coordinateds.origin ilike 'minha casa' and
+                                      coordinateds.destination ilike 'meu trabalho') ORDER BY "coordinateds"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "coordinateds" SET "distance" = $1 WHERE "coordinateds"."id" = $2[0m  [["distance", 7], ["id", 710]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 5ms (ActiveRecord: 1.9ms)
+  [1m[36mCoordinated Load (0.3ms)[0m  [1m[34mSELECT  "coordinateds".* FROM "coordinateds" WHERE "coordinateds"."id" = $1 LIMIT $2[0m  [["id", 710], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by CoordinatedsController#create as HTML
+  Parameters: {"destination"=>"meu trabalho", "distance"=>"-1", "origin"=>"minha casa"}
+  [1m[36mCoordinated Load (0.4ms)[0m  [1m[34mSELECT  "coordinateds".* FROM "coordinateds" WHERE (coordinateds.origin ilike 'minha casa' and
+                                      coordinateds.destination ilike 'meu trabalho') ORDER BY "coordinateds"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 4ms (Views: 1.7ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu trabalho"], ["destination", "meu lazer"], ["distance", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu cinema"], ["destination", "minha piscina"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CostsController#index as HTML
+  Parameters: {"destination"=>"Meu lazer", "origin"=>"Minha casa", "weight"=>"-1"}
+Completed 422 Unprocessable Entity in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu trabalho"], ["destination", "meu lazer"], ["distance", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu cinema"], ["destination", "minha piscina"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CostsController#index as HTML
+  Parameters: {"destination"=>"meu cinema", "origin"=>"minha casa", "weight"=>"1"}
+  [1m[36mCoordinated Load (0.3ms)[0m  [1m[34mSELECT "coordinateds".* FROM "coordinateds"[0m
+Completed 422 Unprocessable Entity in 1ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "minha casa"], ["destination", "meu trabalho"], ["distance", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu trabalho"], ["destination", "meu lazer"], ["distance", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "coordinateds" ("origin", "destination", "distance") VALUES ($1, $2, $3) RETURNING "id"[0m  [["origin", "meu cinema"], ["destination", "minha piscina"], ["distance", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by CostsController#index as HTML
+  Parameters: {"destination"=>"meu lazer", "origin"=>"minha casa", "weight"=>"1"}
+  [1m[36mCoordinated Load (0.4ms)[0m  [1m[34mSELECT "coordinateds".* FROM "coordinateds"[0m
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
